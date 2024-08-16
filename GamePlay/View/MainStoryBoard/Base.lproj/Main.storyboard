@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MBE-It-0Ij">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="18N-9N-agL">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -169,8 +169,51 @@
             </objects>
             <point key="canvasLocation" x="2715" y="4"/>
         </scene>
+        <!--Leagues-->
+        <scene sceneID="2Er-1H-BGi">
+            <objects>
+                <viewController storyboardIdentifier="LeagueDetailsVC" id="18N-9N-agL" customClass="LeagueDetailsVC" customModule="GamePlay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QyB-RL-8Bn">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defulatFootball" id="3i0-9U-MLU">
+                                <rect key="frame" x="0.0" y="46" width="393" height="759"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="emL-A7-l4R">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GTe-Zt-OLx">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wiQ-2A-c4o"/>
+                        <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="emL-A7-l4R" firstAttribute="leading" secondItem="wiQ-2A-c4o" secondAttribute="leading" id="KH7-7m-B6K"/>
+                            <constraint firstItem="wiQ-2A-c4o" firstAttribute="bottom" secondItem="emL-A7-l4R" secondAttribute="bottom" id="NIp-dN-XaL"/>
+                            <constraint firstItem="emL-A7-l4R" firstAttribute="top" secondItem="wiQ-2A-c4o" secondAttribute="top" id="b3F-uj-1Yw"/>
+                            <constraint firstItem="wiQ-2A-c4o" firstAttribute="trailing" secondItem="emL-A7-l4R" secondAttribute="trailing" id="ken-Te-g1t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Leagues" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="m5a-vU-CEV"/>
+                    <connections>
+                        <outlet property="collectionView" destination="emL-A7-l4R" id="zse-Y1-etb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JEM-qj-fpc" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3506" y="4"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="defulatFootball" width="500" height="500"/>
         <image name="logo" width="950" height="276"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

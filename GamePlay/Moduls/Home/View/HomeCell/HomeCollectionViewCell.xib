@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56m-Vc-J9F">
                         <rect key="frame" x="0.0" y="59" width="265" height="184"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rUd-b2-GIj">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defulatFootball" translatesAutoresizingMaskIntoConstraints="NO" id="rUd-b2-GIj">
                                 <rect key="frame" x="5" y="5" width="255" height="128.66666666666666"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzw-HR-649">
@@ -57,4 +57,7 @@
             <point key="canvasLocation" x="303.05343511450383" y="99.647887323943664"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="defulatFootball" width="500" height="500"/>
+    </resources>
 </document>
