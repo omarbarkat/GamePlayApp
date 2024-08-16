@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LeaguesCollectionViewCell" id="wr8-Co-8cW" customClass="LeaguesCollectionViewCell" customModule="GamePlay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="277"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="392" height="277"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EH7-KF-ePX">
+                        <rect key="frame" x="0.0" y="59" width="392" height="184"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R6V-9Y-UaU">
+                                <rect key="frame" x="20" y="18.333333333333329" width="106" height="147.33333333333337"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="UNX-r5-8mR">
+                                <rect key="frame" x="136" y="82" width="251" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <color key="textColor" red="0.90196079019999997" green="0.89411771299999998" blue="0.87450981139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UNX-r5-8mR" firstAttribute="leading" secondItem="R6V-9Y-UaU" secondAttribute="trailing" constant="10" id="2eQ-Je-vHM"/>
+                            <constraint firstItem="R6V-9Y-UaU" firstAttribute="height" secondItem="EH7-KF-ePX" secondAttribute="height" multiplier="0.8" id="Lb7-86-xro"/>
+                            <constraint firstItem="R6V-9Y-UaU" firstAttribute="width" secondItem="EH7-KF-ePX" secondAttribute="width" multiplier="0.27" id="NtY-S5-nsZ"/>
+                            <constraint firstItem="R6V-9Y-UaU" firstAttribute="centerY" secondItem="EH7-KF-ePX" secondAttribute="centerY" id="P21-7r-HbA"/>
+                            <constraint firstAttribute="trailing" secondItem="UNX-r5-8mR" secondAttribute="trailing" constant="5" id="tLn-sx-m0e"/>
+                            <constraint firstItem="UNX-r5-8mR" firstAttribute="centerY" secondItem="EH7-KF-ePX" secondAttribute="centerY" id="td7-GL-PSK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="CWj-eU-vAm"/>
+            <constraints>
+                <constraint firstItem="CWj-eU-vAm" firstAttribute="trailing" secondItem="EH7-KF-ePX" secondAttribute="trailing" id="7ME-FL-Jc7"/>
+                <constraint firstItem="CWj-eU-vAm" firstAttribute="top" secondItem="EH7-KF-ePX" secondAttribute="top" id="XZC-Wc-2qO"/>
+                <constraint firstItem="R6V-9Y-UaU" firstAttribute="leading" secondItem="CWj-eU-vAm" secondAttribute="leading" constant="20" id="eZq-Lb-47G"/>
+                <constraint firstItem="EH7-KF-ePX" firstAttribute="leading" secondItem="CWj-eU-vAm" secondAttribute="leading" id="sIz-Yu-3nv"/>
+                <constraint firstItem="EH7-KF-ePX" firstAttribute="bottom" secondItem="CWj-eU-vAm" secondAttribute="bottom" id="vKT-hc-44n"/>
+            </constraints>
+            <size key="customSize" width="392" height="277"/>
+            <connections>
+                <outlet property="footballBackgroundView" destination="EH7-KF-ePX" id="RKE-cb-pJy"/>
+                <outlet property="imgLeaguePhoto" destination="R6V-9Y-UaU" id="eh5-rn-YEo"/>
+                <outlet property="lblLeagueName" destination="UNX-r5-8mR" id="VWW-MK-HjV"/>
+            </connections>
+            <point key="canvasLocation" x="206.10687022900763" y="99.647887323943664"/>
+        </collectionViewCell>
+    </objects>
+</document>

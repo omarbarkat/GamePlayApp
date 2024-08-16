@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct FootballModel: Codable {
+struct LeaguesModel: Codable {
     let success: Int
-    let result: [Result]
+    let result: [LeaguesResult]
 }
 
-struct Result: Codable {
+struct LeaguesResult: Codable {
     let leagueKey: Int
     let leagueName: String
-    let countryKey: Int
-    let countryName: String
+    let countryKey: Int?
+    let countryName: String?
     let leagueLogo, countryLogo: String?
 
     enum CodingKeys: String, CodingKey {

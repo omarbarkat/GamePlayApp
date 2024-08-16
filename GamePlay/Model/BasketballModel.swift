@@ -12,11 +12,16 @@ struct BasketballModel: Codable {
     let result: [BasketballResult]
 }
 
+// MARK: - Result
 struct BasketballResult: Codable {
+    let leagueKey: Int
+    let leagueName: String
     let countryKey: Int
     let countryName: String
 
     enum CodingKeys: String, CodingKey {
+        case leagueKey = "league_key"
+        case leagueName = "league_name"
         case countryKey = "country_key"
         case countryName = "country_name"
     }

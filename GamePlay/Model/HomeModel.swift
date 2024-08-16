@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import UIKit
 
 struct HomeModel {
     var image: String

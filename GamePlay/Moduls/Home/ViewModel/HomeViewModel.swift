@@ -9,6 +9,7 @@ import Foundation
 
 class HomeViewModel {
     var homeModel: [HomeModel] = []
+    var onNavigationToFootball: (() -> Void)?
     func getHomeData() -> [HomeModel] {
         homeModel = [
             HomeModel(image: "football", title: "Football"),
@@ -18,5 +19,9 @@ class HomeViewModel {
 
         ]
         return homeModel
+    }
+    
+    func showFootballLeague() {
+        onNavigationToFootball?()
     }
 }
