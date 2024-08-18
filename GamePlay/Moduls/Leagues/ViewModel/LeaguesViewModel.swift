@@ -7,18 +7,23 @@
 
 import Foundation
 
-class LeaguesViewModel {
+protocol LeaguesViewModelProtocol {
+    func showLeagueDetails()
+}
+
+class LeaguesViewModel: LeaguesViewModelProtocol {
     
     var networkService: NetworkService?
     var url: String = ""
-    var sporype:Sport
-    var arrSport:[Any]=[]
+    var sporype: Sport
+    var arrSport: [Any]=[]
+    var onNavigationToLeagueDetails: (() -> Void)?
+
     
-    init(sport:Sport) {
-        sporype=sport
+    init(sport: Sport) {
+        sporype = sport
         networkService = NetworkService()
     }
-//    var getFootballLeagues: ( ()-> Void)
     func getData(completionHandler: @escaping (Any)-> Void) {
         var str = ""
         typealias sp = LeaguesModel
@@ -36,7 +41,7 @@ class LeaguesViewModel {
             typealias sp = TennisModel
       
         }
-        networkService?.request(str) {(result: Resultt<sp, Error>) in
+        networkService?.request(str, parameters: APIParameters.normal.paramters) {(result: Resultt<sp, Error>) in
             print(result)
             switch result {
                 
@@ -48,6 +53,9 @@ class LeaguesViewModel {
                    print("Error: \(error)")
                }
         }
+    }
+    func showLeagueDetails() {
+        onNavigationToLeagueDetails?()
     }
 }
 enum Sport:String {

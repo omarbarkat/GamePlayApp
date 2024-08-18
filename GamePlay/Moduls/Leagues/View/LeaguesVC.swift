@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class LeaguesVC: UIViewController {
-    //var arrFootballLeages: [FootballResult] = []
+    
     var leaguesViewModel: LeaguesViewModel?
     @IBOutlet weak var headerView: UIView!
     {
@@ -24,7 +24,6 @@ class LeaguesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.RegisterNib(cell: LeaguesCollectionViewCell.self)
@@ -35,7 +34,14 @@ class LeaguesVC: UIViewController {
 
     }
     
-
+    func naviToLeagueDetails() {
+        leaguesViewModel?.onNavigationToLeagueDetails = { [weak self] in
+            let vc = self?.storyboard?.instantiateViewController(withIdentifier: "LeagueDetailsVC") as! LeagueDetailsVC
+            self?.navigationController?.pushViewController(vc, animated: true)
+            self?.leaguesViewModel?.showLeagueDetails()
+            
+        }
+    }
  
 
 }

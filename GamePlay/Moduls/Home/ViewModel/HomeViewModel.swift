@@ -16,7 +16,6 @@ class HomeViewModel {
             HomeModel(image: "basketball2", title: "Basketball"),
             HomeModel(image: "cricket", title: "Cricket"),
             HomeModel(image: "tennis", title: "Tennis")
-
         ]
         return homeModel
     }

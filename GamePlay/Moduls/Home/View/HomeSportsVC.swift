@@ -9,12 +9,10 @@ import UIKit
 
 class HomeSportsVC: UIViewController {
 
-//    var data: DataParser?
     var football: LeaguesViewModel?
     var homeViewModel: HomeViewModel?
     var networkSevice: NetworkService?
     var arrHomeData: [HomeModel] = []
-    @IBOutlet weak var headerView: UICollectionReusableView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -25,7 +23,6 @@ class HomeSportsVC: UIViewController {
         networkSevice = NetworkService()
         homeViewModel = HomeViewModel()
         arrHomeData = (homeViewModel?.getHomeData())!
-        print(arrHomeData)
 
     }
     func naviToFootball(flag:Int) {
@@ -45,7 +42,6 @@ class HomeSportsVC: UIViewController {
                 
                 print("")
             }
-            //vc.footballViewModel?.sporype = .football
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         homeViewModel?.showFootballLeague()

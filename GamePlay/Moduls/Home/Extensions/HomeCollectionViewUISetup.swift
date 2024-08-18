@@ -32,10 +32,8 @@ extension HomeSportsVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfItemsPerRow: CGFloat = 2
         let spacingBetweenCells: CGFloat = 10
-        
         let totalSpacing = (2 * spacingBetweenCells) + ((numberOfItemsPerRow - 1) * spacingBetweenCells)
         let width = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
-        
         return CGSize(width: width, height: width)
     }
     
@@ -49,28 +47,15 @@ extension HomeSportsVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            
             naviToFootball(flag: 0)
         case 1:
             naviToFootball(flag: 1)
-
-            print("basket")
         case 2:
             naviToFootball(flag: 2)
-
-            print("cricket")
-
         case 3:
             naviToFootball(flag: 3)
-
-            print("tennis")
-
-
         default:
             break
-            
         }
-
     }
-    
 }

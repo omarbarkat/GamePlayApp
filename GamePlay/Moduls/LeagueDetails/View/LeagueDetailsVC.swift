@@ -8,11 +8,15 @@
 import UIKit
 
 class LeagueDetailsVC: UIViewController {
-
+    var arrEvent: [EventModel] = []
+    var leagueDetailsViewModel: LeaguesDetailsViewModel?
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        leagueDetailsViewModel = LeaguesDetailsViewModel()
+      
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.RegisterNib(cell: FirstSectionNibCell.self)
@@ -33,6 +37,20 @@ class LeagueDetailsVC: UIViewController {
             }
         }
         collectionView.setCollectionViewLayout(compLayout, animated: true)
+        leagueDetailsViewModel?.getData(apiParameter: APIParameters.comingEvent(leagueID: (leagueDetailsViewModel?.leagueID.self)!), isComingEvent: true, completionHandler: { response in
+            print("ok")
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+
+            }
+        })
+        
+        leagueDetailsViewModel?.getData(apiParameter: APIParameters.latestEvent(leagueID: (leagueDetailsViewModel?.leagueID.self)!), isComingEvent: false, completionHandler: { response in
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+
+            }
+        })
 
 
     }
@@ -51,7 +69,16 @@ extension LeagueDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        switch section {
+        case 0:
+            return (leagueDetailsViewModel?.arrComingEvents.count)!
+        case 1:
+            return (leagueDetailsViewModel?.arrLatestResult.count)!
+        case 2:
+            return (leagueDetailsViewModel?.arrTeams.count)!
+        default:
+            return 10
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,7 +86,25 @@ extension LeagueDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource,
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FirstSectionNibCell", for: indexPath) as! FirstSectionNibCell
+            
             cell.FirstBackgroundView.backgroundColor = cell.FirstBackgroundView.backgroundColor?.withAlphaComponent(0.5)
+            let event = leagueDetailsViewModel?.arrComingEvents[indexPath.row]
+            cell.lblEventTitle.text = event?.eventStadium
+            
+            cell.lblFirstTeamName.text = event?.eventHomeTeam
+            cell.lblSecTeamName.text = event?.eventAwayTeam
+            cell.lblFirstTeamSubName.text = event?.eventAwayTeam
+            
+//            if event?.homeTeamLogo != nil {
+//
+//            }
+            cell.imgFirstTeamLogo.setImage(with: event?.homeTeamLogo! ?? "")
+            cell.imgSecTeamLogo.setImage(with: event?.awayTeamLogo! ?? "")
+            cell.lblMatchDate.text = event?.eventDate
+            cell.lblMatchTime.text = event?.eventTime
+            cell.lblEventSubtitle.text = event?.countryName
+            cell.lblSecTeamSubName.text = event?.eventPenaltyResult
+            
             cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.layer.borderWidth = 3
             cell.layer.cornerRadius = 15
@@ -67,7 +112,14 @@ extension LeagueDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource,
 
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondSectionNibCell", for: indexPath) as! SecondSectionNibCell
+            let latestResult = leagueDetailsViewModel?.arrLatestResult[indexPath.row]
             cell.secBackgroundView.backgroundColor = cell.secBackgroundView.backgroundColor?.withAlphaComponent(0.2)
+            cell.lblLiftTeamName.text = latestResult?.eventHomeTeam
+            cell.lblReightTameName.text = latestResult?.eventAwayTeam
+            cell.lblMatchResult.text = latestResult?.eventFinalResult
+            cell.imgLiftTeamLogo.setImage(with: latestResult?.homeTeamLogo! ?? "")
+            cell.imgReightTeamLogo.setImage(with: latestResult?.awayTeamLogo! ?? "")
+            
             cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.layer.borderWidth = 3
             cell.layer.cornerRadius = 15
@@ -76,8 +128,10 @@ extension LeagueDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource,
 
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
+            let team = leagueDetailsViewModel?.arrTeams[indexPath.row]
             cell.HomebackgroundView.backgroundColor = cell.HomebackgroundView.backgroundColor?.withAlphaComponent(0.2)
-
+            cell.lblSportName.text = team?.teamName
+            cell.imgSportPhoto.setImage(with: team?.imgUrl ?? "")
             cell.layer.borderColor = UIColor.lightGray.cgColor
             cell.layer.borderWidth = 3
             cell.layer.cornerRadius = 15

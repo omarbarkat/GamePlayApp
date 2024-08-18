@@ -68,6 +68,12 @@ extension LeaguesVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 20, height: collectionView.bounds.height / 4.5 )
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        naviToLeagueDetails()
+//        leaguesViewModel?.showLeagueDetails()
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LeagueDetailsVC") as! LeagueDetailsVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
