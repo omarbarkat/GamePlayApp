@@ -22,7 +22,7 @@ class NetworkService: NetworkServiceProtocol {
 //              print(response.result)
 //              print(response.response)
 //              let json = try! JSONSerialization.jsonObject(with: response.data!)
-//              print(json)
+              print(response.result)
               
               switch response.result {
               case .success(let data):

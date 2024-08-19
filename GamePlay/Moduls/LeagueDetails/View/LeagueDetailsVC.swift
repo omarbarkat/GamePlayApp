@@ -15,11 +15,6 @@ class LeagueDetailsVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        leaguesViewModel = LeaguesViewModel(sport: .football)
-//        leagueDetailsViewModel = LeaguesDetailsViewModel()
-      
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.RegisterNib(cell: FirstSectionNibCell.self)
@@ -36,7 +31,6 @@ class LeagueDetailsVC: UIViewController {
             }
             else {
                 return self.thirdSection()
-
             }
         }
         collectionView.setCollectionViewLayout(compLayout, animated: true)
@@ -44,19 +38,18 @@ class LeagueDetailsVC: UIViewController {
             print("ok")
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
-
             }
         })
-        
         leagueDetailsViewModel?.getData(apiParameter: APIParameters.latestEvent(leagueID: (leagueDetailsViewModel?.leagueID )!), isComingEvent: false, completionHandler: { response in
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
-
             }
         })
-
-
     }
+    @IBAction func btnAddToFav(_ sender: Any) {
+         CoreDataManager.shared.saveLeague(leagueDetailsViewModel!.currentLeague)
+    }
+    
     
     func naviToTeamDetails(index: Int) {
         let vc = storyboard?.instantiateViewController(identifier: "TeamDetailsVC") as! TeamDetailsVC
@@ -64,7 +57,4 @@ class LeagueDetailsVC: UIViewController {
         vc.teamDetailsViewModel = TeamDetailsViewModel(teamID: "\(leagueDetailsViewModel?.arrTeams[index].teamKey ?? "175")" )
         present(vc, animated: true)
     }
-  
-    
-
 }

@@ -1,8 +1,8 @@
 //
-//  TeamResult.swift
-//  InstaSport
+//  Model.swift
+//  GamePlay
 //
-//  Created by zyad Baset on 14/08/2024.
+//  Created by eng.omar on 18/08/2024.
 //
 
 import Foundation

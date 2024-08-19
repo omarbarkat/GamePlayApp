@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class LeaguesVC: UIViewController {
     
@@ -16,8 +15,6 @@ class LeaguesVC: UIViewController {
         didSet {
             headerView.backgroundColor = headerView.backgroundColor?.withAlphaComponent(0.3)
             headerView.layer.cornerRadius = 10
-           
-            
         }
     }
     @IBOutlet weak var collectionView: UICollectionView!
@@ -26,26 +23,38 @@ class LeaguesVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.RegisterNib(cell: LeaguesCollectionViewCell.self)
-        leaguesViewModel?.getData(completionHandler: { response in
+        
+        if leaguesViewModel == nil {
+            leaguesViewModel = LeaguesViewModel(sport: .football, dataSourceManger: .coreData)
             
+        }
+        
+        
+
+      
+        leaguesViewModel?.getData(completionHandler: { response in
             self.collectionView.reloadData()
         })
 
     }
-    
-    
-   
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "onNavigationToLeagueDetails" {
             if let vc = segue.destination as? LeagueDetailsVC {
-             
-                if let indexPath = collectionView.indexPathsForSelectedItems?.first {
-                    let selectedLeague = leaguesViewModel?.arrSport[indexPath.row] as? LeaguesResult
-                    vc.leagueDetailsViewModel=LeaguesDetailsViewModel(leagueID: "\(selectedLeague!.leagueKey)")
+                if let indexPath = collectionView.indexPathsForSelectedItems?.first{
+                    if leaguesViewModel?.dataSourceManger == .coreData {
+                        let selectedLeague = leaguesViewModel?.arrFav[indexPath.row]
+                        vc.leagueDetailsViewModel=LeaguesDetailsViewModel(leagueID: "\(selectedLeague!.leagueKey)", currentLeague: selectedLeague!)
+                    }else {
+                        let selectedLeague = leaguesViewModel?.arrSport[indexPath.row] as? LeaguesResult
+                        vc.leagueDetailsViewModel=LeaguesDetailsViewModel(leagueID: "\(selectedLeague!.leagueKey)", currentLeague: selectedLeague!)
+                    }
+                   
                 }
             }
         }
     }
-
 }

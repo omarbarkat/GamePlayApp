@@ -30,18 +30,19 @@ class HomeSportsVC: UIViewController {
             let vc = self?.storyboard?.instantiateViewController(withIdentifier: "FootballLeaguesVC") as! LeaguesVC
             switch flag {
             case 0:
-                vc.leaguesViewModel = LeaguesViewModel(sport: .football)
+                vc.leaguesViewModel = LeaguesViewModel(sport: .football, dataSourceManger: .api)
             case 1:
-                vc.leaguesViewModel = LeaguesViewModel(sport: .basketball)
+                vc.leaguesViewModel = LeaguesViewModel(sport: .basketball, dataSourceManger: .api)
             case 2:
-                vc.leaguesViewModel = LeaguesViewModel(sport: .cricket)
+                vc.leaguesViewModel = LeaguesViewModel(sport: .cricket, dataSourceManger: .api)
             case 3:
-                vc.leaguesViewModel = LeaguesViewModel(sport: .tennis)
+                vc.leaguesViewModel = LeaguesViewModel(sport: .tennis, dataSourceManger: .api)
 
             default:
                 
                 print("")
             }
+//            vc.leaguesViewModel?.dataSourceManger = .api
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         homeViewModel?.showFootballLeague()

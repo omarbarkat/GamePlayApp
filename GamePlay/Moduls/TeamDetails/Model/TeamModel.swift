@@ -1,8 +1,8 @@
 //
-//  TeamModel.swift
+//  Model.swift
 //  GamePlay
 //
-//  Created by eng.omar on 19/08/2024.
+//  Created by eng.omar on 18/08/2024.
 //
 
 import Foundation

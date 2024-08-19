@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -53,11 +54,11 @@
             </objects>
             <point key="canvasLocation" x="1970.2290076335878" y="3.5211267605633805"/>
         </scene>
-        <!--Item-->
+        <!--Game Play-->
         <scene sceneID="HdR-rS-gCd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d4d-Z2-ukk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Ksb-nR-lha"/>
+                    <tabBarItem key="tabBarItem" title="Game Play" image="sportscourt.fill" catalog="system" id="Ksb-nR-lha"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VSa-N3-ZzU">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -76,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="1043.5114503816794" y="3.5211267605633805"/>
         </scene>
-        <!--Item-->
+        <!--Favorite List-->
         <scene sceneID="vk2-TZ-VN6">
             <objects>
                 <viewController id="5zV-bd-POe" sceneMemberID="viewController">
@@ -86,11 +87,13 @@
                         <viewLayoutGuide key="safeArea" id="Dct-OF-295"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="pVG-1o-wjf"/>
+                    <tabBarItem key="tabBarItem" title="Favorite List" image="heart" catalog="system" selectedImage="heart.fill" id="pVG-1o-wjf">
+                        <color key="badgeColor" systemColor="systemRedColor"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XwP-Zz-UA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="179" y="707"/>
+            <point key="canvasLocation" x="117" y="932"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Y2A-ad-PAO">
@@ -104,7 +107,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="d4d-Z2-ukk" kind="relationship" relationship="viewControllers" id="qEB-zg-Gql"/>
-                        <segue destination="5zV-bd-POe" kind="relationship" relationship="viewControllers" id="XsK-uu-9h9"/>
+                        <segue destination="cCE-eI-VpD" kind="relationship" relationship="viewControllers" id="yJQ-y8-Qa8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CQ-yD-pev" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -120,10 +123,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHP-mD-2Sr">
-                                <rect key="frame" x="0.0" y="59" width="393" height="128"/>
+                                <rect key="frame" x="0.0" y="59.000000000000007" width="393" height="119.66666666666669"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="REJ-bE-YtK">
-                                        <rect key="frame" x="59" y="19.333333333333329" width="275" height="89.333333333333329"/>
+                                        <rect key="frame" x="59" y="18" width="275" height="83.666666666666671"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -135,7 +138,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ekM-i3-1dm">
-                                <rect key="frame" x="0.0" y="197" width="393" height="621"/>
+                                <rect key="frame" x="0.0" y="188.66666666666669" width="393" height="580.33333333333326"/>
                                 <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sHc-Rq-maK">
                                     <size key="itemSize" width="128" height="128"/>
@@ -159,6 +162,9 @@
                             <constraint firstItem="HPj-J7-fUR" firstAttribute="trailing" secondItem="ekM-i3-1dm" secondAttribute="trailing" id="x5g-Rc-6Iw"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Favorite List" image="heart" catalog="system" id="aWJ-LO-3Ew">
+                        <imageReference key="selectedImage" image="heart.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Leagues" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="MNh-J2-YG1"/>
                     <connections>
                         <outlet property="collectionView" destination="ekM-i3-1dm" id="nN0-IH-CVE"/>
@@ -183,7 +189,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="emL-A7-l4R">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="90" width="393" height="703"/>
                                 <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GTe-Zt-OLx">
                                     <size key="itemSize" width="128" height="128"/>
@@ -193,17 +199,35 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4Q-bA-Xz4">
+                                <rect key="frame" x="0.0" y="40" width="393" height="44"/>
+                                <color key="barTintColor" systemColor="separatorColor"/>
+                                <items>
+                                    <navigationItem title="Game Play" id="Hwo-8V-8e2">
+                                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="Yxo-xW-N1G">
+                                            <connections>
+                                                <action selector="btnAddToFav:" destination="18N-9N-agL" id="2vc-pF-luZ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wiQ-2A-c4o"/>
                         <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="R4Q-bA-Xz4" firstAttribute="leading" secondItem="wiQ-2A-c4o" secondAttribute="leading" id="2yp-z5-ahu"/>
                             <constraint firstItem="emL-A7-l4R" firstAttribute="leading" secondItem="wiQ-2A-c4o" secondAttribute="leading" id="KH7-7m-B6K"/>
+                            <constraint firstItem="wiQ-2A-c4o" firstAttribute="trailing" secondItem="R4Q-bA-Xz4" secondAttribute="trailing" id="MVl-nM-u7E"/>
                             <constraint firstItem="wiQ-2A-c4o" firstAttribute="bottom" secondItem="emL-A7-l4R" secondAttribute="bottom" id="NIp-dN-XaL"/>
-                            <constraint firstItem="emL-A7-l4R" firstAttribute="top" secondItem="wiQ-2A-c4o" secondAttribute="top" id="b3F-uj-1Yw"/>
+                            <constraint firstItem="R4Q-bA-Xz4" firstAttribute="top" secondItem="wiQ-2A-c4o" secondAttribute="top" constant="40" id="ZOT-2A-xJq"/>
+                            <constraint firstItem="emL-A7-l4R" firstAttribute="top" secondItem="R4Q-bA-Xz4" secondAttribute="bottom" constant="6" id="jje-xy-1xY"/>
                             <constraint firstItem="wiQ-2A-c4o" firstAttribute="trailing" secondItem="emL-A7-l4R" secondAttribute="trailing" id="ken-Te-g1t"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Leagues" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="m5a-vU-CEV"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="emL-A7-l4R" id="zse-Y1-etb"/>
                     </connections>
@@ -330,7 +354,10 @@
     <resources>
         <image name="cricket" width="500" height="500"/>
         <image name="defulatFootball" width="500" height="500"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="logo" width="950" height="276"/>
+        <image name="sportscourt.fill" catalog="system" width="128" height="83"/>
         <image name="stadium" width="1280" height="720"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="separatorColor">
@@ -338,6 +365,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

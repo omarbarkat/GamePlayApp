@@ -1,10 +1,9 @@
-//////
-//////  CoachModel.swift
-//////  InstaSport
-//////
-//////  Created by zyad Baset on 14/08/2024.
-//////
-////
+//
+//  Model.swift
+//  GamePlay
+//
+//  Created by eng.omar on 18/08/2024.
+//
 import Foundation
 struct Coach: Codable {
     let coachName: String
