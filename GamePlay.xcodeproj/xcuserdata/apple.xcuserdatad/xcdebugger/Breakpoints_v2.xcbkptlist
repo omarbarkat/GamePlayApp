@@ -30,8 +30,8 @@
             filePath = "GamePlay/Moduls/LeagueDetails/ViewModel/LeaguesDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "getData(apiParameter:isComingEvent:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -39,16 +39,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "055EC288-7126-49A5-A6A1-0EB6BBB941DD"
+            uuid = "6E2DC8BD-6FFE-486C-8297-237F4A931C70"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GamePlay/Moduls/Leagues/Extensions/LeaguesCollectionViewUISetup.swift"
+            filePath = "GamePlay/Moduls/TeamDetails/ViewModel/TeamDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getData(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

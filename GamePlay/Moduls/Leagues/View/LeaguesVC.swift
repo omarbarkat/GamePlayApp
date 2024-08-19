@@ -23,7 +23,6 @@ class LeaguesVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-      
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.RegisterNib(cell: LeaguesCollectionViewCell.self)
@@ -34,14 +33,19 @@ class LeaguesVC: UIViewController {
 
     }
     
-    func naviToLeagueDetails() {
-        leaguesViewModel?.onNavigationToLeagueDetails = { [weak self] in
-            let vc = self?.storyboard?.instantiateViewController(withIdentifier: "LeagueDetailsVC") as! LeagueDetailsVC
-            self?.navigationController?.pushViewController(vc, animated: true)
-            self?.leaguesViewModel?.showLeagueDetails()
-            
+    
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "onNavigationToLeagueDetails" {
+            if let vc = segue.destination as? LeagueDetailsVC {
+             
+                if let indexPath = collectionView.indexPathsForSelectedItems?.first {
+                    let selectedLeague = leaguesViewModel?.arrSport[indexPath.row] as? LeaguesResult
+                    vc.leagueDetailsViewModel=LeaguesDetailsViewModel(leagueID: "\(selectedLeague!.leagueKey)")
+                }
+            }
         }
     }
- 
 
 }

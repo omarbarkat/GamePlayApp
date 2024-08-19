@@ -9,19 +9,25 @@ import Foundation
 
 class LeaguesDetailsViewModel {
     var networkService: NetworkService?
-    var arrComingEvents:[EventModel]=[]
-    var arrLatestResult:[EventModel]=[]
-    var setTeams :Set<TeamsModel>=[]
-    var arrTeams:[TeamsModel]=[]
-    
-    
-    var leagueID = "683"
+    var arrComingEvents:[EventModel] = []
+    var arrLatestResult:[EventModel] = []
+    var setTeams :Set<TeamsModel> = []
+    var arrTeams:[TeamsModel] = []
+    var onNavigationToTeamDetails: (() -> Void)?
 
-    init() {
+    
+    
+    var leagueID: String
+
+//    init() {
+//        networkService = NetworkService()
+////        self.leagueID = leagueID
+//    } 
+    init(leagueID:String) {
         networkService = NetworkService()
+        self.leagueID = leagueID
     }
     
-//   func getData(completionHandler: @escaping (ComingEventsModel)-> Void) {
     func getData(apiParameter: APIParameters,isComingEvent:Bool, completionHandler: @escaping (ComingEventsModel) -> Void) {
 
        let url = "https://apiv2.allsportsapi.com/football"
@@ -36,8 +42,8 @@ class LeaguesDetailsViewModel {
                    
                    
                    for item in self.arrComingEvents{
-                       let obj = TeamsModel(imgUrl: item.homeTeamLogo ?? "imgFB", teamKey: "\(item.homeTeamKey)", teamName: item.eventHomeTeam)
-                       let obj2 = TeamsModel(imgUrl: item.awayTeamLogo ?? "imgFB", teamKey: "\(item.awayTeamKey)", teamName: item.eventAwayTeam)
+                       let obj = TeamsModel(imgUrl: item.homeTeamLogo ?? "defulatFootball", teamKey: "\(item.homeTeamKey)", teamName: item.eventHomeTeam)
+                       let obj2 = TeamsModel(imgUrl: item.awayTeamLogo ?? "defulatFootball", teamKey: "\(item.awayTeamKey)", teamName: item.eventAwayTeam)
                        self.setTeams.insert(obj)
                        self.setTeams.insert(obj2)
                        print(self.setTeams.count)
@@ -49,8 +55,8 @@ class LeaguesDetailsViewModel {
                    self.arrLatestResult.append(contentsOf: response.result)
 
                    for item in self.arrLatestResult{
-                       let obj = TeamsModel(imgUrl: item.homeTeamLogo ?? "imgFB", teamKey: "\(item.homeTeamKey)", teamName: item.eventHomeTeam)
-                       let obj2 = TeamsModel(imgUrl: item.awayTeamLogo ?? "imgFB", teamKey: "\(item.awayTeamKey)", teamName: item.eventAwayTeam)
+                       let obj = TeamsModel(imgUrl: item.homeTeamLogo ?? "defulatFootball", teamKey: "\(item.homeTeamKey)", teamName: item.eventHomeTeam)
+                       let obj2 = TeamsModel(imgUrl: item.awayTeamLogo ?? "defulatFootball", teamKey: "\(item.awayTeamKey)", teamName: item.eventAwayTeam)
                        self.setTeams.insert(obj)
                        self.setTeams.insert(obj2)
                        print(self.setTeams.count)
@@ -64,6 +70,9 @@ class LeaguesDetailsViewModel {
                   print("Error: \(error)")
               }
        }
+    }
+    func showTeamDetails() {
+        onNavigationToTeamDetails?()
     }
   
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlayerNibCell" id="gTV-IL-0wX" customClass="PlayerNibCell" customModule="GamePlay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="448" height="269"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="448" height="269"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho8-Z5-kTn">
+                        <rect key="frame" x="0.0" y="59" width="448" height="176"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cricket" translatesAutoresizingMaskIntoConstraints="NO" id="AVY-lk-weo">
+                                <rect key="frame" x="20" y="58" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AVY-lk-weo" secondAttribute="height" multiplier="1:1" id="dxo-ga-2D8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 Abo Trecka" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCc-j1-EdB">
+                                <rect key="frame" x="90" y="77.666666666666657" width="114.33333333333331" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 Abo Trecka" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLI-Uc-OtW">
+                                <rect key="frame" x="325" y="77.666666666666657" width="114.33333333333331" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iLI-Uc-OtW" secondAttribute="trailing" constant="8.6666666666667425" id="Wpw-X6-YPd"/>
+                            <constraint firstItem="AVY-lk-weo" firstAttribute="centerY" secondItem="ho8-Z5-kTn" secondAttribute="centerY" id="epi-Uf-gs5"/>
+                            <constraint firstItem="HCc-j1-EdB" firstAttribute="centerY" secondItem="ho8-Z5-kTn" secondAttribute="centerY" id="esu-r9-vcY"/>
+                            <constraint firstItem="HCc-j1-EdB" firstAttribute="leading" secondItem="AVY-lk-weo" secondAttribute="trailing" constant="10" id="mxT-0T-MvI"/>
+                            <constraint firstItem="AVY-lk-weo" firstAttribute="leading" secondItem="ho8-Z5-kTn" secondAttribute="leading" constant="20" id="q4y-GC-YJy"/>
+                            <constraint firstItem="iLI-Uc-OtW" firstAttribute="centerY" secondItem="ho8-Z5-kTn" secondAttribute="centerY" id="ti2-mv-cUb"/>
+                            <constraint firstItem="AVY-lk-weo" firstAttribute="width" secondItem="ho8-Z5-kTn" secondAttribute="width" multiplier="0.133929" id="ye3-7C-UvC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="ho8-Z5-kTn" secondAttribute="trailing" id="Ali-Or-b9x"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="ho8-Z5-kTn" secondAttribute="top" id="Ome-Xm-Dcc"/>
+                <constraint firstItem="ho8-Z5-kTn" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="Zri-VH-cEl"/>
+                <constraint firstItem="ho8-Z5-kTn" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="iKb-0G-Hkx"/>
+            </constraints>
+            <size key="customSize" width="448" height="269"/>
+            <connections>
+                <outlet property="ViewBackground" destination="ho8-Z5-kTn" id="tth-du-xrL"/>
+                <outlet property="imgPlayerPhoto" destination="AVY-lk-weo" id="gOl-93-H5D"/>
+                <outlet property="lblPlayerName" destination="HCc-j1-EdB" id="Poc-aF-njv"/>
+                <outlet property="lblPlayerPosition" destination="iLI-Uc-OtW" id="tI4-BN-y6b"/>
+            </connections>
+            <point key="canvasLocation" x="68.702290076335871" y="-8.8028169014084519"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cricket" width="500" height="500"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

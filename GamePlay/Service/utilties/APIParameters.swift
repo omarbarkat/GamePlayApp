@@ -11,6 +11,7 @@ enum APIParameters {
     case normal
     case comingEvent(leagueID: String)
     case latestEvent(leagueID: String)
+    case teamDetails(teamID: String)
     
     var paramters: [String: Any] {
         switch self {
@@ -34,6 +35,12 @@ enum APIParameters {
                          "from":   DateOptimizer.oneYearBefore,
                          "to":  DateOptimizer.currentDate ,
                          "APIkey": "2c28d4947373c9aad33c4b48c0f99c79ce4469f4c59f207b0ee9d8f73d2ae9e2"
+                     ]
+        case .teamDetails(let teamID):
+            return [
+                         "met": "Teams",
+                         "teamId": teamID,
+                         "APIkey": "781caa8a35913d04b7a8f150114a3dddba894c05c380891b3a55100c60d9afe5"
                      ]
         }
     }

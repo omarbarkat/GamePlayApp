@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 
+
 protocol NetworkServiceProtocol {
     func request<T: Decodable>(_ endpoint: String, parameters: [String: Any]?, completion: @escaping (Resultt<T, Error>) -> Void)
 
@@ -18,7 +19,11 @@ protocol NetworkServiceProtocol {
 class NetworkService: NetworkServiceProtocol {
     func request<T: Decodable>(_ endpoint: String, parameters: [String: Any]?, completion: @escaping (Resultt<T, Error>) -> Void) {
           AF.request(endpoint, parameters: parameters).responseData { response in
-              print(response.result)
+//              print(response.result)
+//              print(response.response)
+//              let json = try! JSONSerialization.jsonObject(with: response.data!)
+//              print(json)
+              
               switch response.result {
               case .success(let data):
                   do {

@@ -22,7 +22,7 @@ extension LeaguesVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             cell.imgLeaguePhoto.contentMode = .scaleToFill
 
             if obj.countryLogo != nil {
-                cell.imgLeaguePhoto.setImage(with: obj.leagueLogo!)
+                cell.imgLeaguePhoto.setImage(with: obj.countryLogo!)
 
             }else {
                 cell.imgLeaguePhoto.image = UIImage(named: "defulatFootball")!
@@ -69,10 +69,9 @@ extension LeaguesVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return CGSize(width: collectionView.bounds.width - 20, height: collectionView.bounds.height / 4.5 )
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        naviToLeagueDetails()
-//        leaguesViewModel?.showLeagueDetails()
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LeagueDetailsVC") as! LeagueDetailsVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        performSegue(withIdentifier: "onNavigationToLeagueDetails", sender: self)
+
+
     }
     
 }
