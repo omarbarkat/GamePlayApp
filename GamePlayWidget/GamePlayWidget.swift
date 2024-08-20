@@ -55,22 +55,12 @@ struct GamePlayWidgetEntryView : View {
                            .foregroundColor(.white)
                            .padding(.top, 20)
 
-//                       // League Name
-//                       if let league = entry.league {
-//                           Text(league.name)
-//                               .font(.headline)
-//                               .foregroundColor(.white)
-//                       } else {
-//                           Text("Loading...")
-//                               .font(.headline)
-//                               .foregroundColor(.white)
-//                       }
 
                        // Current Time
                        Text("\(entry.date, formatter: timeFormatter)")
                            .font(.caption)
                            .foregroundColor(.white)
-                           .padding(.top, 110)
+                         .padding(.bottom, 20)
 
                        Spacer()
                    }
