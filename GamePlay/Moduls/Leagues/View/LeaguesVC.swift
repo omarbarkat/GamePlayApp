@@ -24,6 +24,9 @@ class LeaguesVC: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: NSNotification.Name("FavoritesUpdated"), object: nil)
         
+
+
+        
         
 
         collectionView.delegate = self
@@ -41,6 +44,7 @@ class LeaguesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView.reloadData()
     }
+ 
     @objc func updateFavorites() {
         loadFavorites()
     }

@@ -12,16 +12,35 @@ class LeagueDetailsVC: UIViewController {
     var leagueDetailsViewModel: LeaguesDetailsViewModel?
     var leaguesViewModel: LeaguesViewModel?
     var leagueID: String?
-//    var isFav = true
-    @IBOutlet weak var btnAddToFav: UIBarButtonItem!
+
+    //Outlets:
+    @IBOutlet weak var imgErrorPhoto: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDataFetchError), name: NSNotification.Name("DataFetchError"), object: nil)
+        imgErrorPhoto.isHidden = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.RegisterNib(cell: FirstSectionNibCell.self)
         collectionView.RegisterNib(cell: SecondSectionNibCell.self)
         collectionView.RegisterNib(cell: HomeCollectionViewCell.self)
+        setUI()
+        
+        leagueDetailsViewModel?.getData(apiParameter: APIParameters.comingEvent(leagueID: (leagueDetailsViewModel?.leagueID)!), isComingEvent: true, completionHandler: { response in
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
+        leagueDetailsViewModel?.getData(apiParameter: APIParameters.latestEvent(leagueID: (leagueDetailsViewModel?.leagueID )!), isComingEvent: false, completionHandler: { response in
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
+    }
+    
+    //Actions:
+    func setUI() {
         collectionView.backgroundColor = collectionView.backgroundColor?.withAlphaComponent(0.9)
         addFavBTN()
         let compLayout = UICollectionViewCompositionalLayout{
@@ -37,19 +56,7 @@ class LeagueDetailsVC: UIViewController {
             }
         }
         collectionView.setCollectionViewLayout(compLayout, animated: true)
-        leagueDetailsViewModel?.getData(apiParameter: APIParameters.comingEvent(leagueID: (leagueDetailsViewModel?.leagueID)!), isComingEvent: true, completionHandler: { response in
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        })
-        leagueDetailsViewModel?.getData(apiParameter: APIParameters.latestEvent(leagueID: (leagueDetailsViewModel?.leagueID )!), isComingEvent: false, completionHandler: { response in
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        })
     }
-    
-    //Actions:
     func addFavBTN() {
         let isFav = CoreDataManager.shared.isFavorite(league: leagueDetailsViewModel!.currentLeague, arrayOfLeagues: CoreDataManager.shared.fetchSavedLeagues())
         
@@ -62,6 +69,14 @@ class LeagueDetailsVC: UIViewController {
         
         navigationItem.rightBarButtonItem = addToFav
     }
+    @objc func handleDataFetchError() {
+        imgErrorPhoto.isHidden = false
+        imgErrorPhoto.image = UIImage(named: "error404")
+     }
+
+     deinit {
+         NotificationCenter.default.removeObserver(self, name: NSNotification.Name("DataFetchError"), object: nil)
+     }
     @objc func addToFavorites(){
         let isFav = CoreDataManager.shared.isFavorite(
                league: leagueDetailsViewModel!.currentLeague,

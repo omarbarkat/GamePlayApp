@@ -16,14 +16,14 @@ class MockNetworkManager {
         self.shouldReturnError = shouldReturnError
     }
     
-    let fakeJSONObj: [String : Any] =
+    let fakeResponse: [String : Any] =
     [
         "success": 1,
         "result": [
             [
-                "league_key": 322,
+                "league_key": 305,
                 "league_name": "Süper Lig",
-                "country_key": 111,
+                "country_key": 55,
                 "country_name": "Turkey",
                 "league_logo": "https://apiv2.allsportsapi.com/logo/logo_leagues/322_süper-lig.png",
                 "country_logo": "https://apiv2.allsportsapi.com/logo/logo_country/111_turkey.png"
@@ -45,7 +45,7 @@ extension MockNetworkManager {
         }
         
         do {
-            let data = try JSONSerialization.data(withJSONObject: fakeJSONObj)
+            let data = try JSONSerialization.data(withJSONObject: fakeResponse)
             result = try JSONDecoder().decode(LeaguesModel.self, from: data)
             
         } catch let error {

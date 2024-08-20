@@ -30,9 +30,13 @@ class NetworkService: NetworkServiceProtocol {
                       print(decodedObject)
                   } catch {
                       completion(.failure(error))
+                      NotificationCenter.default.post(name: NSNotification.Name("DataFetchError"), object: nil)
+
                   }
               case .failure(let error):
                   completion(.failure(error))
+                  NotificationCenter.default.post(name: NSNotification.Name("DataFetchError"), object: nil)
+
               }
           }
       }
