@@ -19,9 +19,7 @@ protocol NetworkServiceProtocol {
 class NetworkService: NetworkServiceProtocol {
     func request<T: Decodable>(_ endpoint: String, parameters: [String: Any]?, completion: @escaping (Resultt<T, Error>) -> Void) {
           AF.request(endpoint, parameters: parameters).responseData { response in
-//              print(response.result)
-//              print(response.response)
-//              let json = try! JSONSerialization.jsonObject(with: response.data!)
+
               print(response.result)
               
               switch response.result {

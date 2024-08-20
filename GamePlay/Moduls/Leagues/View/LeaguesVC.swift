@@ -23,12 +23,15 @@ class LeaguesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: NSNotification.Name("FavoritesUpdated"), object: nil)
+        
+        
 
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.RegisterNib(cell: LeaguesCollectionViewCell.self)
         
         if leaguesViewModel == nil {
+            
             leaguesViewModel = LeaguesViewModel(sport: .football, dataSourceManger: .coreData)
         }
         leaguesViewModel?.getData(completionHandler: { response in
@@ -44,6 +47,12 @@ class LeaguesVC: UIViewController {
     func loadFavorites() {
         self.leaguesViewModel?.arrFav = CoreDataManager.shared.fetchSavedLeagues()
         self.collectionView.reloadData()
+        if leaguesViewModel?.arrFav.isEmpty ?? true {
+                  imgEmptyPhoto.isHidden = false
+                  imgEmptyPhoto.image = UIImage(named: "error404")
+              } else {
+                  imgEmptyPhoto.isHidden = true
+              }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
