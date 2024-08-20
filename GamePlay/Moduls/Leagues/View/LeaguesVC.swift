@@ -9,6 +9,7 @@ import UIKit
 
 class LeaguesVC: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     var leaguesViewModel: LeaguesViewModel?
     @IBOutlet weak var headerView: UIView!
     {
@@ -20,6 +21,7 @@ class LeaguesVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.RegisterNib(cell: LeaguesCollectionViewCell.self)
@@ -58,3 +60,5 @@ class LeaguesVC: UIViewController {
         }
     }
 }
+
+

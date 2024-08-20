@@ -18,64 +18,60 @@ extension LeaguesVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         }
     }
     
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LeaguesCollectionViewCell", for: indexPath) as! LeaguesCollectionViewCell
+        
         if leaguesViewModel?.dataSourceManger == .coreData {
-            let data = leaguesViewModel?.arrFav[indexPath.row]
-            print(data)
-            cell.lblLeagueName.text = data?.leagueName
+            configureCell(cell, with: leaguesViewModel?.arrFav[indexPath.row])
         } else {
-            switch leaguesViewModel?.sporype {
-            case .football:
-                let obj=leaguesViewModel?.arrSport[indexPath.row] as! LeaguesResult
-                cell.lblLeagueName.text = obj.leagueName
-                cell.imgLeaguePhoto.contentMode = .scaleToFill
-
-                if obj.leagueLogo != nil {
-                    cell.imgLeaguePhoto.setImage(with: obj.leagueLogo!)
-
-                }else {
-                    cell.imgLeaguePhoto.image = UIImage(named: "defulatFootball")!
-                }
-            case .basketball:
-                let obj=leaguesViewModel?.arrSport[indexPath.row] as! LeaguesResult
-                cell.lblLeagueName.text = obj.leagueName
-                cell.imgLeaguePhoto.contentMode = .scaleToFill
-                if obj.leagueLogo != nil {
-                    cell.imgLeaguePhoto.setImage(with: obj.leagueLogo!)
-
-                }else {
-                    cell.imgLeaguePhoto.image = UIImage(named: "basketball1")!
-                }
-            case .tennis:
-                let obj=leaguesViewModel?.arrSport[indexPath.row] as! LeaguesResult
-                cell.lblLeagueName.text = obj.leagueName
-                if obj.leagueLogo != nil {
-                    cell.imgLeaguePhoto.setImage(with: obj.leagueLogo!)
-
-                }else {
-                    cell.imgLeaguePhoto.image = UIImage(named: "tennis")!
-                }
-            case .cricket:
-                let obj=leaguesViewModel?.arrSport[indexPath.row] as! LeaguesResult
-                cell.lblLeagueName.text = obj.leagueName
-                if obj.leagueLogo != nil {
-                    cell.imgLeaguePhoto.setImage(with: obj.leagueLogo!)
-
-                }else {
-                    cell.imgLeaguePhoto.image = UIImage(named: "cricketDef")!
-                }
-            case .none:
-                break
-            }
+            configureCell(cell, with: leaguesViewModel?.arrSport[indexPath.row] as? LeaguesResult)
         }
-       
-        cell.imgLeaguePhoto.layer.cornerRadius = 15
-        cell.footballBackgroundView.backgroundColor = cell.footballBackgroundView.backgroundColor?.withAlphaComponent(0.2)
-        cell.layer.cornerRadius = 15
-
+        
         return cell
     }
+
+    private func configureCell(_ cell: LeaguesCollectionViewCell, with league: FavList?) {
+        guard let league = league else { return }
+        cell.lblLeagueName.text = league.leagueName
+        configureImage(cell.imgLeaguePhoto, with: league.leagueImg, defaultImageName: "defaultImage")
+    }
+
+    private func configureCell(_ cell: LeaguesCollectionViewCell, with league: LeaguesResult?) {
+        guard let league = league else { return }
+        cell.lblLeagueName.text = league.leagueName
+        
+        let defaultImageName: String
+        switch leaguesViewModel?.sporype {
+        case .football:
+            defaultImageName = "defulatFootball"
+        case .basketball:
+            defaultImageName = "basketball1"
+        case .tennis:
+            defaultImageName = "tennis"
+        case .cricket:
+            defaultImageName = "cricketDef"
+        case .none:
+            defaultImageName = "defaultImage"
+        }
+        
+        configureImage(cell.imgLeaguePhoto, with: league.leagueLogo, defaultImageName: defaultImageName)
+    }
+
+    private func configureImage(_ imageView: UIImageView, with url: String?, defaultImageName: String) {
+        imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 15
+        if let url = url {
+            imageView.setImage(with: url)
+        } else {
+            imageView.image = UIImage(named: defaultImageName)
+        }
+        imageView.layer.cornerRadius = 15
+        imageView.superview?.backgroundColor = imageView.superview?.backgroundColor?.withAlphaComponent(0.2)
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 20, height: collectionView.bounds.height / 4.5 )

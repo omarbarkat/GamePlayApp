@@ -137,8 +137,18 @@
                                     <constraint firstItem="REJ-bE-YtK" firstAttribute="height" secondItem="qHP-mD-2Sr" secondAttribute="height" multiplier="0.7" id="Xfi-Yf-An9"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1QR-O2-Jtl">
+                                <rect key="frame" x="0.0" y="161" width="393" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cCE-eI-VpD" id="9rm-2h-NZk"/>
+                                </connections>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ekM-i3-1dm">
-                                <rect key="frame" x="0.0" y="188.66666666666669" width="393" height="580.33333333333326"/>
+                                <rect key="frame" x="0.0" y="227" width="393" height="542"/>
                                 <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sHc-Rq-maK">
                                     <size key="itemSize" width="128" height="128"/>
@@ -152,13 +162,16 @@
                         <viewLayoutGuide key="safeArea" id="HPj-J7-fUR"/>
                         <color key="backgroundColor" red="0.090196087960000004" green="0.090196087960000004" blue="0.086274504660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="HPj-J7-fUR" firstAttribute="trailing" secondItem="1QR-O2-Jtl" secondAttribute="trailing" id="4vT-5T-l2H"/>
+                            <constraint firstItem="1QR-O2-Jtl" firstAttribute="leading" secondItem="HPj-J7-fUR" secondAttribute="leading" id="4w7-hJ-X4n"/>
+                            <constraint firstItem="1QR-O2-Jtl" firstAttribute="top" secondItem="REJ-bE-YtK" secondAttribute="bottom" constant="0.33333333333331439" id="DCB-5G-qrX"/>
                             <constraint firstItem="ekM-i3-1dm" firstAttribute="leading" secondItem="HPj-J7-fUR" secondAttribute="leading" id="OOr-AA-yWC"/>
                             <constraint firstItem="HPj-J7-fUR" firstAttribute="bottom" secondItem="ekM-i3-1dm" secondAttribute="bottom" id="RaY-W9-HxF"/>
+                            <constraint firstItem="ekM-i3-1dm" firstAttribute="top" secondItem="1QR-O2-Jtl" secondAttribute="bottom" constant="10" id="ajI-oO-9WB"/>
                             <constraint firstItem="qHP-mD-2Sr" firstAttribute="height" secondItem="HPj-J7-fUR" secondAttribute="height" multiplier="0.168643" id="cqE-1j-JO7"/>
                             <constraint firstItem="qHP-mD-2Sr" firstAttribute="top" secondItem="HPj-J7-fUR" secondAttribute="top" id="gNQ-NI-G53"/>
                             <constraint firstItem="qHP-mD-2Sr" firstAttribute="leading" secondItem="HPj-J7-fUR" secondAttribute="leading" id="kNQ-u4-YWM"/>
                             <constraint firstItem="HPj-J7-fUR" firstAttribute="trailing" secondItem="qHP-mD-2Sr" secondAttribute="trailing" id="oo2-gM-MlF"/>
-                            <constraint firstItem="ekM-i3-1dm" firstAttribute="top" secondItem="qHP-mD-2Sr" secondAttribute="bottom" constant="10" id="r74-Ez-eku"/>
                             <constraint firstItem="HPj-J7-fUR" firstAttribute="trailing" secondItem="ekM-i3-1dm" secondAttribute="trailing" id="x5g-Rc-6Iw"/>
                         </constraints>
                     </view>
@@ -169,12 +182,13 @@
                     <connections>
                         <outlet property="collectionView" destination="ekM-i3-1dm" id="nN0-IH-CVE"/>
                         <outlet property="headerView" destination="qHP-mD-2Sr" id="rVc-vu-D0Y"/>
+                        <outlet property="searchBar" destination="1QR-O2-Jtl" id="aZQ-07-wAj"/>
                         <segue destination="18N-9N-agL" kind="show" identifier="onNavigationToLeagueDetails" id="p4n-1C-eVo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubv-jS-mJO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2715" y="4"/>
+            <point key="canvasLocation" x="2713.740458015267" y="3.5211267605633805"/>
         </scene>
         <!--Leagues-->
         <scene sceneID="2Er-1H-BGi">
@@ -201,7 +215,10 @@
                             </collectionView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4Q-bA-Xz4">
                                 <rect key="frame" x="0.0" y="40" width="393" height="44"/>
-                                <color key="barTintColor" systemColor="separatorColor"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Game Play" id="Hwo-8V-8e2">
                                         <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="Yxo-xW-N1G">

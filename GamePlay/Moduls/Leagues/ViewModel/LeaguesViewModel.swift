@@ -12,6 +12,7 @@ protocol LeaguesViewModelProtocol {
 }
 class LeaguesViewModel: LeaguesViewModelProtocol {
     
+    
     var networkService: NetworkService?
     var url: String = ""
     var sporype: Sport
