@@ -20,7 +20,6 @@ class Converter{
         return str
     }
         static func convertingStrToImg(str: String) -> UIImage? {
-            
             if let imgStr = Data(base64Encoded: str, options: .ignoreUnknownCharacters) {
                 let image = UIImage(data: imgStr)
                 return image

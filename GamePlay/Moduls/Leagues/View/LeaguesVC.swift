@@ -53,10 +53,8 @@ class LeaguesVC: UIViewController {
                   imgEmptyPhoto.isHidden = true
               }
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "onNavigationToLeagueDetails" {
-            
                 if let vc = segue.destination as? LeagueDetailsVC {
                     if let indexPath = collectionView.indexPathsForSelectedItems?.first {
                         if leaguesViewModel?.dataSourceManger == .coreData {
@@ -68,9 +66,6 @@ class LeaguesVC: UIViewController {
                         }
                     }
                 }
-            
-//                return
-            
         }
     }
     func alert(msg: String) {
