@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LeaguesDetailsViewModel: LeaguesDetailsViewModelPorotocol {
+class LeaguesDetailsViewModel {
     var networkService: NetworkServiceProtocol
     var arrComingEvents: [EventModel] = []
     var arrLatestResult: [EventModel] = []
