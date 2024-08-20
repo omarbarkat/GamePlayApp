@@ -61,21 +61,31 @@ class LeaguesVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "onNavigationToLeagueDetails" {
-            if let vc = segue.destination as? LeagueDetailsVC {
-                if let indexPath = collectionView.indexPathsForSelectedItems?.first{
-                    if leaguesViewModel?.dataSourceManger == .coreData {
-                        let selectedLeague = leaguesViewModel?.arrFav[indexPath.row]
-                        vc.leagueDetailsViewModel=LeaguesDetailsViewModel(leagueID: "\(selectedLeague!.leagueKey)", currentLeague: selectedLeague!)
-                        self.collectionView.reloadData()
-                    }else {
-                        let selectedLeague = leaguesViewModel?.arrSport[indexPath.row] as? LeaguesResult
-                        vc.leagueDetailsViewModel=LeaguesDetailsViewModel(leagueID: "\(selectedLeague!.leagueKey)", currentLeague: selectedLeague!)
+            if !NetworkChecking.shared.isConnected {
+                if let vc = segue.destination as? LeagueDetailsVC {
+                    if let indexPath = collectionView.indexPathsForSelectedItems?.first {
+                        if leaguesViewModel?.dataSourceManger == .coreData {
+                            let selectedLeague = leaguesViewModel?.arrFav[indexPath.row]
+                            vc.leagueDetailsViewModel = LeaguesDetailsViewModel(leagueID: "\(selectedLeague!.leagueKey)", currentLeague: selectedLeague!)
+                        } else {
+                            let selectedLeague = leaguesViewModel?.arrSport[indexPath.row] as? LeaguesResult
+                            vc.leagueDetailsViewModel = LeaguesDetailsViewModel(leagueID: "\(selectedLeague!.leagueKey)", currentLeague: selectedLeague!)
+                        }
                     }
-                   
                 }
+            } else {
+                alert(msg: "Please check your internet connection and try again.")
+                return
             }
         }
     }
+    func alert(msg: String) {
+        let alert = UIAlertController(title: "No Internet Connection!", message: msg, preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Dismiss", style: .default)
+        alert.addAction(dismiss)
+        present(alert, animated: true)
+    }
+    
 }
 
 
