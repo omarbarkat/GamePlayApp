@@ -77,24 +77,6 @@
             </objects>
             <point key="canvasLocation" x="1043.5114503816794" y="3.5211267605633805"/>
         </scene>
-        <!--Favorite List-->
-        <scene sceneID="vk2-TZ-VN6">
-            <objects>
-                <viewController id="5zV-bd-POe" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qMl-9G-MLV">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Dct-OF-295"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorite List" image="heart" catalog="system" selectedImage="heart.fill" id="pVG-1o-wjf">
-                        <color key="badgeColor" systemColor="systemRedColor"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XwP-Zz-UA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="117" y="932"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Y2A-ad-PAO">
             <objects>
@@ -220,13 +202,7 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Game Play" id="Hwo-8V-8e2">
-                                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="Yxo-xW-N1G">
-                                            <connections>
-                                                <action selector="btnAddToFav:" destination="18N-9N-agL" id="2vc-pF-luZ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="Game Play" id="Hwo-8V-8e2"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -379,12 +355,6 @@
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="separatorColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

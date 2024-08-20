@@ -30,3 +30,4 @@ struct BGConstants {
     static var cricket: String {return "\(baseURL)cricket/" }
     static var tennis: String {return "\(baseURL)tennis/" }
 }
+

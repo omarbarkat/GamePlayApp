@@ -40,15 +40,16 @@ class LeaguesViewModel: LeaguesViewModelProtocol {
         typealias sp = LeaguesModel
         switch sporype{
         case .football:
-            str="https://apiv2.allsportsapi.com/football/"
+            str = BGConstants.foodball
         case .basketball:
-            str="https://apiv2.allsportsapi.com/basketball/"
+            str = BGConstants.basketball
             typealias sp = BasketballModel
         case .cricket:
-            str = "https://apiv2.allsportsapi.com/cricket/"
+            str = BGConstants.cricket
+
             typealias sp = CricketModel
         case .tennis:
-            str = "https://apiv2.allsportsapi.com/tennis/"
+            str = BGConstants.tennis
             typealias sp = TennisModel
         }
         networkService?.request(str, parameters: APIParameters.normal.paramters) {(result: Resultt<sp, Error>) in
@@ -66,10 +67,7 @@ class LeaguesViewModel: LeaguesViewModelProtocol {
     }
     
     func getDataFromCoreData(completionHandler: @escaping (Any)-> Void ) {
-        // fetch data from core data
         arrFav = CoreDataManager.shared.fetchSavedLeagues()
-        
-        
     }
     
     func showLeagueDetails() {
