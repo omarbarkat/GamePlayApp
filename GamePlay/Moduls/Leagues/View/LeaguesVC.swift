@@ -8,7 +8,7 @@
 import UIKit
 
 class LeaguesVC: UIViewController {
-    
+    //Outlets:
     @IBOutlet weak var imgEmptyPhoto: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     var leaguesViewModel: LeaguesViewModel?
@@ -23,12 +23,7 @@ class LeaguesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: NSNotification.Name("FavoritesUpdated"), object: nil)
-        
-
-
-        
-        
-
+     
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.RegisterNib(cell: LeaguesCollectionViewCell.self)

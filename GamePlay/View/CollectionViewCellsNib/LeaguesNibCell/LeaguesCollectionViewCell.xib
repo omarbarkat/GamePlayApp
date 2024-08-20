@@ -28,13 +28,29 @@
                                 <color key="textColor" red="0.90196079019999997" green="0.89411771299999998" blue="0.87450981139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSu-ub-GV0">
+                                <rect key="frame" x="328.66666666666669" y="50" width="43.333333333333314" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system">
+                                    <backgroundConfiguration key="background"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17" scale="small" weight="light"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnYoutube:" destination="wr8-Co-8cW" eventType="touchUpInside" id="icA-89-bCm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qSu-ub-GV0" firstAttribute="centerY" secondItem="EH7-KF-ePX" secondAttribute="centerY" constant="-25" id="1Wb-Vg-OxL"/>
                             <constraint firstItem="UNX-r5-8mR" firstAttribute="leading" secondItem="R6V-9Y-UaU" secondAttribute="trailing" constant="10" id="2eQ-Je-vHM"/>
+                            <constraint firstItem="qSu-ub-GV0" firstAttribute="height" secondItem="EH7-KF-ePX" secondAttribute="height" multiplier="0.186594" id="3Ge-W5-ADL"/>
                             <constraint firstItem="R6V-9Y-UaU" firstAttribute="height" secondItem="EH7-KF-ePX" secondAttribute="height" multiplier="0.8" id="Lb7-86-xro"/>
                             <constraint firstItem="R6V-9Y-UaU" firstAttribute="width" secondItem="EH7-KF-ePX" secondAttribute="width" multiplier="0.27" id="NtY-S5-nsZ"/>
                             <constraint firstItem="R6V-9Y-UaU" firstAttribute="centerY" secondItem="EH7-KF-ePX" secondAttribute="centerY" id="P21-7r-HbA"/>
+                            <constraint firstItem="qSu-ub-GV0" firstAttribute="width" secondItem="EH7-KF-ePX" secondAttribute="width" multiplier="0.110544" id="QPC-hT-bMp"/>
+                            <constraint firstAttribute="trailing" secondItem="qSu-ub-GV0" secondAttribute="trailing" constant="20" id="RQT-N9-HSv"/>
                             <constraint firstAttribute="trailing" secondItem="UNX-r5-8mR" secondAttribute="trailing" constant="5" id="tLn-sx-m0e"/>
                             <constraint firstItem="UNX-r5-8mR" firstAttribute="centerY" secondItem="EH7-KF-ePX" secondAttribute="centerY" id="td7-GL-PSK"/>
                         </constraints>
@@ -51,6 +67,7 @@
             </constraints>
             <size key="customSize" width="392" height="277"/>
             <connections>
+                <outlet property="btnUTube" destination="qSu-ub-GV0" id="jTl-cX-ZDs"/>
                 <outlet property="footballBackgroundView" destination="EH7-KF-ePX" id="RKE-cb-pJy"/>
                 <outlet property="imgLeaguePhoto" destination="R6V-9Y-UaU" id="eh5-rn-YEo"/>
                 <outlet property="lblLeagueName" destination="UNX-r5-8mR" id="VWW-MK-HjV"/>
@@ -58,4 +75,7 @@
             <point key="canvasLocation" x="206.10687022900763" y="99.647887323943664"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
+    </resources>
 </document>
