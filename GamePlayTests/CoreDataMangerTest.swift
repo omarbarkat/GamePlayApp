@@ -38,9 +38,7 @@ final class CoreDataMangerTest: XCTestCase {
 
     func testSaveLeague() {
         XCTAssertEqual(coreData?.fetchSavedLeagues().count, 0)
-//     var manualLeague: FavList?
         let manualLeague = FavList(context: coreData!.context)
-
         manualLeague.leagueImg = "image"
         manualLeague.leagueKey = 22
         manualLeague.leagueName = "egyption League"
@@ -52,9 +50,7 @@ final class CoreDataMangerTest: XCTestCase {
     }
     func testFetchSavedLeagues() {
         XCTAssertEqual(coreData?.fetchSavedLeagues().count, 0)
-//     var manualLeague: FavList?
         let manualLeague = FavList(context: coreData!.context)
-
         manualLeague.leagueImg = "image"
         manualLeague.leagueKey = 22
         manualLeague.leagueName = "egyption League"
@@ -67,9 +63,7 @@ final class CoreDataMangerTest: XCTestCase {
     }
     func testRemoveLeague() {
         XCTAssertEqual(coreData?.fetchSavedLeagues().count, 0)
-//     var manualLeague: FavList?
         let manualLeague = FavList(context: coreData!.context)
-
         manualLeague.leagueImg = "image"
         manualLeague.leagueKey = 22
         manualLeague.leagueName = "egyption League"
@@ -80,17 +74,14 @@ final class CoreDataMangerTest: XCTestCase {
         XCTAssertEqual(coreData?.fetchSavedLeagues().first?.leagueName, "egyption League")
         coreData?.removeLeague(leagueKey: 22)
         XCTAssertEqual(coreData?.fetchSavedLeagues().count, 1)
-        
     }
     func testIsFavorite() {
         XCTAssertEqual(coreData?.fetchSavedLeagues().count, 0)
-
           let manualLeague = FavList(context: coreData!.context)
           manualLeague.leagueImg = "image"
           manualLeague.leagueKey = 22
           manualLeague.leagueName = "egyption League"
           manualLeague.leagueURL = ""
-
           let data = LeaguesResult(favLeague: manualLeague)
           coreData?.saveLeague(data)
           let isFav = coreData?.isFavorite(league: data, arrayOfLeagues: [manualLeague])

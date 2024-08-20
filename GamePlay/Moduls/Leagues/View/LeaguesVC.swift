@@ -9,6 +9,7 @@ import UIKit
 
 class LeaguesVC: UIViewController {
     
+    @IBOutlet weak var imgEmptyPhoto: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     var leaguesViewModel: LeaguesViewModel?
     @IBOutlet weak var headerView: UIView!
@@ -29,16 +30,10 @@ class LeaguesVC: UIViewController {
         
         if leaguesViewModel == nil {
             leaguesViewModel = LeaguesViewModel(sport: .football, dataSourceManger: .coreData)
-            
         }
-        
-        
-
-      
         leaguesViewModel?.getData(completionHandler: { response in
             self.collectionView.reloadData()
         })
-
     }
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView.reloadData()

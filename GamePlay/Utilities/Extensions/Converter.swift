@@ -1,8 +1,8 @@
 //
-//  Converter.swift
-//  InstaSport
+//  LoadImage.swift
+//  GamePlay
 //
-//  Created by zyad Baset on 19/08/2024.
+//  Created by eng.omar on 19/08/2024.
 //
 
 import Foundation
@@ -19,7 +19,6 @@ class Converter{
         }        
         return str
     }
-    
         static func convertingStrToImg(str: String) -> UIImage? {
             
             if let imgStr = Data(base64Encoded: str, options: .ignoreUnknownCharacters) {
