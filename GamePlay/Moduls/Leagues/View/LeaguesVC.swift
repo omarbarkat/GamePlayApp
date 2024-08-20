@@ -56,7 +56,7 @@ class LeaguesVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "onNavigationToLeagueDetails" {
-            if !NetworkChecking.shared.isConnected {
+            
                 if let vc = segue.destination as? LeagueDetailsVC {
                     if let indexPath = collectionView.indexPathsForSelectedItems?.first {
                         if leaguesViewModel?.dataSourceManger == .coreData {
@@ -68,10 +68,9 @@ class LeaguesVC: UIViewController {
                         }
                     }
                 }
-            } else {
-                alert(msg: "Please check your internet connection and try again.")
-                return
-            }
+            
+//                return
+            
         }
     }
     func alert(msg: String) {

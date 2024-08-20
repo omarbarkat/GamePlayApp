@@ -67,8 +67,15 @@ extension LeaguesVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return CGSize(width: collectionView.bounds.width - 20, height: collectionView.bounds.height / 4.5 )
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        performSegue(withIdentifier: "onNavigationToLeagueDetails", sender: self)
+        Connectivity.shared.check { [weak self] connection in
+            if connection {
+                self?.performSegue(withIdentifier: "onNavigationToLeagueDetails", sender: self)
+            }else {
+                self?.alert(msg: "Please check your internet connection and try again.")
+
+            }
+
+        }
     }
 }
 
