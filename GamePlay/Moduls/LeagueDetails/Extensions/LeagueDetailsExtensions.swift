@@ -42,10 +42,6 @@ extension LeagueDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource,
             cell.lblFirstTeamName.text = event?.eventHomeTeam
             cell.lblSecTeamName.text = event?.eventAwayTeam
             cell.lblFirstTeamSubName.text = event?.eventAwayTeam
-            
-//            if event?.homeTeamLogo != nil {
-//
-//            }
             cell.imgFirstTeamLogo.setImage(with: event?.homeTeamLogo! ?? "")
             cell.imgSecTeamLogo.setImage(with: event?.awayTeamLogo! ?? "")
             cell.lblMatchDate.text = event?.eventDate

@@ -48,7 +48,9 @@ final class NetworkServiceTesting: XCTestCase {
                 XCTAssertEqual(response.success, 1)
                 expectedObject.fulfill()
             case .failure(let error):
-                XCTFail(error.localizedDescription)
+                
+                XCTFail()
+                
             }
             wait(for: [expectedObject],timeout: 10)
 

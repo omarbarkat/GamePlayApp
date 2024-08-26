@@ -42,7 +42,6 @@ class HomeSportsVC: UIViewController {
                 
                 print("")
             }
-//            vc.leaguesViewModel?.dataSourceManger = .api
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         homeViewModel?.showFootballLeague()

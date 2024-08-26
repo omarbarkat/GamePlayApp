@@ -17,7 +17,7 @@ final class LeaguesDetailsViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         coreData = CoreDataManager.shared
-        let leagueID = "123"
+        let leagueID = "175"
         let manualLeague = FavList(context: coreData!.context)
                manualLeague.leagueImg = "image"
                manualLeague.leagueKey = 22

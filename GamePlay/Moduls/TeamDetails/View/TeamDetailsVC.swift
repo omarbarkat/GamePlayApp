@@ -30,8 +30,6 @@ class TeamDetailsVC: UIViewController {
             self.CollectionView.reloadData()
             
         })
-      
-        
     }
     // Actions:
     @IBAction func btnDismiss(_ sender: Any) {
